@@ -18,8 +18,8 @@ class Station
       puts "На станции #{name} поездa типа #{type} №:"
       trains.each { |train| puts train.number if train.type == type }
     else
-    puts "На станции #{name} поезда №: "
-    trains.each { |train| puts train.number }
+      puts "На станции #{name} поезда №: "
+      trains.each { |train| puts train.number }
     end
   end
 
