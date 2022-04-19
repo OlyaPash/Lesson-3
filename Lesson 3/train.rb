@@ -18,7 +18,7 @@ class Station
       puts "На станции #{name} поездa типа #{type} №:"
       trains.each {|train| puts train.number if train.type == type}
     else
-      puts "На станции #{name} поезда №: "
+      puts "На станции #{name} поезда №:"
       trains.each {|train| puts train.number}
     end
   end
@@ -35,20 +35,19 @@ class Route
   attr_accessor :stations, :starting_station, :end_station
 
   def initialize(starting_station, end_station)
-    @starting_station = starting_station
     @end_station = end_station
     @stations = [starting_station, end_station]
-    puts "Построен маршрут #{starting_station.name} - #{end_station.name}"
+    puts "Построен маршрут #{stations.first.name} - #{stations.last.name}"
   end
 
   def add_station(station)
     self.stations[-1] = station
     self.stations << @end_station
-    puts "К маршруту #{starting_station.name} - #{end_station.name} добавлена станция #{station.name}"
+    puts "К маршруту #{stations.first.name} - #{stations.last.name} добавлена станция #{station.name}"
   end
 
   def delete_station(station)
-    if [self.starting_station , self.end_station].include?(station)
+    if [stations.first, stations.last].include?(station)
       puts "Нельзя удалять первую и последнюю станции!"
     else self.stations.delete(station)
       puts "Станция #{station.name} удалена из списка!"
