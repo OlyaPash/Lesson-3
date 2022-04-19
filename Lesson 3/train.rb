@@ -16,15 +16,15 @@ class Station
   def show_trains(type = nil)
     if type
       puts "На станции #{name} поездa типа #{type} №:"
-      trains.each { |train| puts train.number if train.type == type }
+      trains.each {|train| puts train.number if train.type == type}
     else
       puts "На станции #{name} поезда №: "
-      trains.each { |train| puts train.number }
+      trains.each {|train| puts train.number}
     end
   end
 
   def send_train(train)
-    trains.each { |train| train.number }
+    trains.each {|train| train.number}
     trains.delete(train)
     puts "Поезд номер #{train.number} отправляется со станции #{name}"
   end
@@ -57,7 +57,7 @@ class Route
 
   def show_stations
     puts "Список всех станций: "
-    self.stations.each { |station| puts "#{station.name}" }
+    self.stations.each {|station| puts "#{station.name}"}
     
   end
 
